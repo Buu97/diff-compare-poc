@@ -1,28 +1,60 @@
 <div class="json-view-wrapper mb-3">
   <div>
-    <ngx-json-viewer [json]="data.INITIAL_DATA"></ngx-json-viewer>
+    <h4>Données initiales</h4>
+    <div>
+      <ngx-json-viewer [json]="data.INITIAL_DATA"></ngx-json-viewer>
+    </div>
   </div>
+
   <div>
-    <ngx-json-viewer [json]="data.MODIFIED_DATA"></ngx-json-viewer>
+    <h4>Données modifiées</h4>
+    <div>
+      <ngx-json-viewer [json]="data.MODIFIED_DATA"></ngx-json-viewer>
+    </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-4 row">
-    <div class="col-md-6">
-      <label>Nom :</label>
+<div class="card card-body mb-4">
+  <div class="row" [appHighlightContext]="data.CHANGE_FLAGS">
+    <div class="col-md-4 row">
+      <div class="col-md-6">
+        <label>Nom :</label>
+      </div>
+      <div class="col-md-6 fw-bold" appHighlight="name">
+        {{  data.MODIFIED_DATA.name }}
+      </div>
     </div>
-    <div class="col-md-6"></div>
-  </div>
-  <div class="col-md-4 row">
-    <div class="col-md-6">
-      <label></label>
+    <div class="col-md-4 row">
+      <div class="col-md-6">
+        <label>Prénom</label>
+      </div>
+      <div class="col-md-6 fw-bold" appHighlight="firstName">{{ data.MODIFIED_DATA.firstName }}</div>
     </div>
-    <div class="col-md-6"></div>
-  </div>
-  <div class="col-md-4 row">
-    <div class="col-md-6">
-      <label></label>
+    <div class="col-md-4 row">
+      <div class="col-md-6">
+        <label>Montant demandé</label>
+      </div>
+      <div class="col-md-6 fw-bold" appHighlight="creditAmount">{{ data.MODIFIED_DATA.creditAmount | number:'1.0-0' }} MGA</div>
     </div>
-    <div class="col-md-6"></div>
   </div>
+</div>
+
+<div class="card card-body">
+  <table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Civilité</th>
+      <th style="width: 80px">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let relation of data.MODIFIED_DATA.relations">
+      <td>{{ relation.nom }}</td>
+      <td>{{ relation.prenoms }}</td>
+      <td>{{ relation.civilite }}</td>
+      <td style="width: 80px"></td>
+    </tr>
+    </tbody>
+  </table>
 </div>

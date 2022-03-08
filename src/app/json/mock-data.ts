@@ -43,8 +43,8 @@ export const INITIAL_DATA = {
 
 export const MODIFIED_DATA = {
   creditAmount: 5000000,
-  name: 'MADECK',
-  firstName: 'Zuck',
+  name: 'Snyder',
+  firstName: 'Zack',
   relations: [
     {
       id: 12100,
@@ -86,9 +86,7 @@ export const MODIFIED_DATA = {
 
 export const CHANGE_FLAGS = {
   changeFlags: {
-    add: {},
-    replace: {relations: '*'},
-    remove: {}
+    replace: {relations: '*', name: 'MADECK', firstName: 'Zuck'},
   },
   relations: {
     changeFlags: {

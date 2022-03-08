@@ -1,5 +1,5 @@
 import {Directive, Inject, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {HighlightContext, HIGHLIGHTDATA} from "../glob/highlight-glob";
+import {HighlightContext, HighlightContextData, HIGHLIGHTDATA} from "../glob/highlight-glob";
 
 @Directive({
   selector: '[appHighlightContext]',
@@ -10,11 +10,12 @@ import {HighlightContext, HIGHLIGHTDATA} from "../glob/highlight-glob";
 export class HighlightContextDirective implements OnChanges {
 
   @Input('appHighlightContext')
-  context: any;
+  context!: HighlightContextData;
 
   constructor(@Inject(HIGHLIGHTDATA) private highlightContextData: HighlightContext) { }
 
   ngOnChanges(changes: SimpleChanges) {
+    this.highlightContextData.data = this.context;
   }
 
 }
