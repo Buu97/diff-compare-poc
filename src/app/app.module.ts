@@ -8,6 +8,7 @@ import {NgxJsonViewerModule} from "ngx-json-viewer";
 import { AppComponent } from './app.component';
 import { HighlightContextDirective } from './directives/highlight-context.directive';
 import { HighlightDirective } from './directives/highlight.directive';
+import { HighlightArrayItemDirective } from './directives/highlight-array-item.directive';
 
 registerLocaleData(locale)
 
@@ -15,7 +16,8 @@ registerLocaleData(locale)
   declarations: [
     AppComponent,
     HighlightContextDirective,
-    HighlightDirective
+    HighlightDirective,
+    HighlightArrayItemDirective
   ],
   imports: [
     BrowserModule,

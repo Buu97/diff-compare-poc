@@ -1,18 +1,3 @@
-<div class="json-view-wrapper mb-3">
-  <div>
-    <h4>Données initiales</h4>
-    <div>
-      <ngx-json-viewer [json]="data.INITIAL_DATA"></ngx-json-viewer>
-    </div>
-  </div>
-
-  <div>
-    <h4>Données modifiées</h4>
-    <div>
-      <ngx-json-viewer [json]="data.MODIFIED_DATA"></ngx-json-viewer>
-    </div>
-  </div>
-</div>
 <div class="card card-body mb-4">
   <div class="row" [appHighlightContext]="data.CHANGE_FLAGS">
     <div class="col-md-4 row">
@@ -33,7 +18,9 @@
       <div class="col-md-6">
         <label>Montant demandé</label>
       </div>
-      <div class="col-md-6 fw-bold" appHighlight="creditAmount">{{ data.MODIFIED_DATA.creditAmount | number:'1.0-0' }} MGA</div>
+      <div class="col-md-6 fw-bold" appHighlight="creditAmount" type="number">
+        {{ data.MODIFIED_DATA.creditAmount | number:'1.0-0' }} MGA
+      </div>
     </div>
   </div>
 </div>
@@ -48,8 +35,8 @@
       <th style="width: 80px">Action</th>
     </tr>
     </thead>
-    <tbody>
-    <tr *ngFor="let relation of data.MODIFIED_DATA.relations">
+    <tbody [appHighlightContext]="data.CHANGE_FLAGS.relations" [originalData]="data.MODIFIED_DATA.relations">
+    <tr *ngFor="let relation of data.MODIFIED_DATA.relations" [appHighlightArrayItem]="relation.id">
       <td>{{ relation.nom }}</td>
       <td>{{ relation.prenoms }}</td>
       <td>{{ relation.civilite }}</td>

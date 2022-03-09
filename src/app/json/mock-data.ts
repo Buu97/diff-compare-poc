@@ -91,7 +91,15 @@ export const CHANGE_FLAGS = {
   relations: {
     changeFlags: {
       "add": {12103: "*"},
-      "remove": {12104: "*"},
+      "remove": {
+        12104: {
+          id: 12104,
+          "nom": "RAZAFY",
+          "prenoms": "François",
+          "civilite": "M",
+          "adresse": {"rue_1": "Lot IJK", "rue_2": "Talamaty"}
+        }
+      },
       "replace": {12001: "*", 12002: "*", 12101: "*"}
     },
     12001: {

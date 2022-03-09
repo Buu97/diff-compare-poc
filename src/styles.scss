@@ -14,5 +14,11 @@ body {
 }
 
 .highlight-modified {
-  background-color: bisque;
+  background-color: #ead59e;
+}
+.highlight-added {
+  background-color: #7dcba6;
+}
+.highlight-removed {
+  background-color: #e7a2a7;
 }
